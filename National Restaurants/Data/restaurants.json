@@ -1,0 +1,11 @@
+[
+  {
+    "Id": 1,
+    "RestaurantType": 0,
+    "Name": "milliy",
+    "Location": "cola",
+    "Menu": null,
+    "CreatedAt": "2024-01-28T12:11:36.1876435Z",
+    "EditedAt": "2024-01-28T12:11:36.1876928Z"
+  }
+]

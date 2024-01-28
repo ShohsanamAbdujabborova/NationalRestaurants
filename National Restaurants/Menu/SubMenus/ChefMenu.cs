@@ -258,11 +258,14 @@ public class ChefMenu
             Console.Write("Enter valid input: ");
             cooks = Console.ReadLine();
         }
+        newChef.Experience = experience;
+        newChef.Name = Name;
+        newChef.Cooks= cooks;
+        newChef.Specialization = Specialization;
+
         await chefService.CreateAsync(newChef);
         Console.WriteLine("Chef information created successfully.");
     }
-
-
 
     private async ValueTask UpdateAsync()
     {

@@ -63,6 +63,7 @@ public class RestaurantService : IRestaurantService
         var content = File.ReadAllText(Constants.RESTAURANTS_PATH);
         var Restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(content);
 
+        restaurant.Id = Restaurants.Count + 1;
         //id qo'yish kk avtomatik yozadigan
         restaurant.CreatedAt = DateTime.UtcNow;
         restaurant.EditedAt = DateTime.UtcNow;

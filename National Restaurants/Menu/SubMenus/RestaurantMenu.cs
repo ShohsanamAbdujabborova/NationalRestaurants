@@ -1,5 +1,4 @@
 ﻿using National_Restaurants.Enums;
-using National_Restaurants.Interfaces;
 using National_Restaurants.Models;
 using National_Restaurants.Services;
 namespace National_Restaurants.Menu.SubMenus;
@@ -98,7 +97,7 @@ public class RestaurantMenu
         await Console.Out.WriteLineAsync("Create restaurant");
         Restaurant restaurant = new Restaurant();
 
-        reentertypecreate:
+reentertypecreate:
         Console.WriteLine("Enter Restaurant Type");
         Console.WriteLine(" 1.National");
         Console.WriteLine(" 2.Other");
@@ -133,7 +132,7 @@ public class RestaurantMenu
 
         restaurant.Name = Name;
         restaurant.Location = Location;
-        
+
 
         var result = restaurantService.CreateAsync(restaurant);
         if (result != null)
@@ -148,11 +147,11 @@ public class RestaurantMenu
 
         await Console.Out.WriteLineAsync("Enter an Id");
         int id = 0;
-        while (!int.TryParse(Console.ReadLine(),out id))
+        while (!int.TryParse(Console.ReadLine(), out id))
         {
             await Console.Out.WriteLineAsync("Enter a valid input");
         }
-    reentertypecreate:
+reentertypecreate:
         Console.WriteLine("Enter Restaurant Type");
         Console.WriteLine(" 1.National");
         Console.WriteLine(" 2.Other");
@@ -184,7 +183,7 @@ public class RestaurantMenu
             Console.Write("Enter valid input: ");
             Location = Console.ReadLine();
         }
-     
+
 
         restaurant.Name = Name;
         restaurant.Location = Location;

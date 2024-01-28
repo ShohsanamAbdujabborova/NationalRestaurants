@@ -84,8 +84,15 @@ public class FoodMenu
         {
             foreach (var food in foods)
             {
-                Console.WriteLine($"Id:{food.Id} Name:{food.Name} Description:{food.Description}" +
-                    $" Price: {food.Price} Included_Drinks:{food.Included_Drinks}");
+                await Console.Out.WriteLineAsync("--------------------------------------------------------");
+                Console.WriteLine($"Id:{food.Id}\nName:{food.Name}\nDescription:{food.Description}\nPrice: {food.Price}\nIcluded Drinks:\n");
+                
+                await Console.Out.WriteLineAsync("-----------------------------------------------");
+                foreach (var item in food.Included_Drinks)
+                {
+                    await Console.Out.WriteLineAsync($"   Drink: {item}\n");
+                }
+                await Console.Out.WriteLineAsync("-----------------------------------------------");
             }
         }
         else

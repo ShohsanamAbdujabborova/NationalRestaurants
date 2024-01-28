@@ -16,8 +16,8 @@ public class ChefService : IChefService
         var content = File.ReadAllText(Constants.CHEFS_PATH);
         var Chefs = JsonConvert.DeserializeObject<List<Chef>>(content);
 
-        var last = Chefs.Last().Id;
-        chef.Id = last + 1;
+
+        chef.Id = Chefs.Count + 1;
 
         Chefs.Add(chef);
 
@@ -80,7 +80,7 @@ public class ChefService : IChefService
             return foundChef;
         }
         var result = JsonConvert.SerializeObject(Chefs, Formatting.Indented);
-        File.WriteAllText(Constants.FOODS_PATH, result);
+        File.WriteAllText(Constants.CHEFS_PATH, result);
 
         return foundChef;
     }
@@ -168,7 +168,7 @@ public class ChefService : IChefService
             return null;
         }
         var result = JsonConvert.SerializeObject(Chefs, Formatting.Indented);
-        File.WriteAllText(Constants.FOODS_PATH, result);
+        File.WriteAllText(Constants.CHEFS_PATH, result);
         return chef;
     }
 }
