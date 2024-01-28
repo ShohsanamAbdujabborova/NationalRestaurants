@@ -84,7 +84,24 @@ public class RestaurantMenu
 
     private async ValueTask AddFoodAsync()
     {
-        throw new NotImplementedException();
+        await Console.Out.WriteLineAsync("==Addfood==");
+        await Console.Out.WriteLineAsync("Enter restaurant id:");
+        int restaurantid = 0;
+        while (!int.TryParse(Console.ReadLine(), out restaurantid))
+        {
+            await Console.Out.WriteLineAsync("Enter a valid input");
+        }
+        await Console.Out.WriteLineAsync("Enter foodid:");
+        int foodid = 0;
+        while (!int.TryParse(Console.ReadLine(), out foodid))
+        {
+            await Console.Out.WriteLineAsync("Enter a valid input");
+        }
+        var result = restaurantService.AddFoodAsync(restaurantid, foodid);
+        if (result != null)
+        {
+            Console.WriteLine("Food added successfully");
+        }
     }
 
     private async ValueTask RemoveFood()

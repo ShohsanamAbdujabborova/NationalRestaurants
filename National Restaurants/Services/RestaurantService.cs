@@ -29,6 +29,10 @@ public class RestaurantService : IRestaurantService
                     {
                         throw new Exception($"food is not found with id {foodId}");
                     }
+                    if (item.Menu == null)
+                    {
+                        item.Menu = new List<Food>();
+                    }
                     item.Menu.Add(food);
                     found = food;
                     foundRestaurant = true;
@@ -40,6 +44,10 @@ public class RestaurantService : IRestaurantService
                     if (food == null)
                     {
                         throw new Exception($"food is not found with id {foodId}");
+                    }
+                    if (item.Menu == null)
+                    {
+                        item.Menu = new List<Food>();
                     }
                     item.Menu.Add(food);
                     found = food;

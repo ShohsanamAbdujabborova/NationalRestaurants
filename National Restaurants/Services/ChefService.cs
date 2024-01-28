@@ -1,6 +1,7 @@
 ﻿using National_Restaurants.Interfaces;
 using National_Restaurants.Models;
 using Newtonsoft.Json;
+using System.Threading.Channels;
 namespace National_Restaurants.Services;
 public class ChefService : IChefService
 {
@@ -40,11 +41,9 @@ public class ChefService : IChefService
                 {
 
                     var createdFoodsJson = await File.ReadAllTextAsync(Constants.CREATED_FOODS_PATH);
-                    var createdFoods = JsonConvert.DeserializeObject<List<CreatedFood>>(createdFoodsJson) ?? new List<CreatedFood>();
+                    var createdFoods = JsonConvert.DeserializeObject<List<CreatedFood>>(createdFoodsJson);
 
-                    var last = createdFoods.Last().Id;
-                    food.Id = last + 1;
-
+  
                     food.ChefId = chefid;
 
                     createdFoods.Add(food);
