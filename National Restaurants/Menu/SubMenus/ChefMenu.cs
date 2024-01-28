@@ -157,6 +157,7 @@ public class ChefMenu
         }
 
         CreatedFood createdFood = new CreatedFood();
+
         createdFood.Name = Name;
         createdFood.ChefId = chefid;
         createdFood.Description = Description;
@@ -181,7 +182,7 @@ public class ChefMenu
         }
         Console.WriteLine("Enter foodId:");
         int foodid = 0 ;
-        while (!int.TryParse(Console.ReadLine(), out chefid))
+        while (!int.TryParse(Console.ReadLine(), out foodid))
         {
             Console.WriteLine("Enter a valid id");
         }

@@ -40,15 +40,15 @@ public class ChefService : IChefService
                 if (chef.Id == chefid)
                 {
 
-                    var createdFoodsJson = await File.ReadAllTextAsync(Constants.CREATED_FOODS_PATH);
+                    var createdFoodsJson = File.ReadAllText(Constants.CREATED_FOODS_PATH);
                     var createdFoods = JsonConvert.DeserializeObject<List<CreatedFood>>(createdFoodsJson);
 
-  
+                    food.Id = createdFoods.Count + 1;
                     food.ChefId = chefid;
 
                     createdFoods.Add(food);
 
-                    var updatedFoodsJson = JsonConvert.SerializeObject(createdFoods);
+                    var updatedFoodsJson = JsonConvert.SerializeObject(createdFoods, Formatting.Indented);
                     await File.WriteAllTextAsync(Constants.CREATED_FOODS_PATH, updatedFoodsJson);
 
                     return food;
@@ -119,19 +119,19 @@ public class ChefService : IChefService
             {
                 if (chef.Id == chefid)
                 {
-                    var createdFoodsJson = await File.ReadAllTextAsync(Constants.CREATED_FOODS_PATH);
-                    var createdFoods = JsonConvert.DeserializeObject<List<CreatedFood>>(createdFoodsJson) ?? new List<CreatedFood>();
+                    var createdFoodsJson = File.ReadAllText(Constants.CREATED_FOODS_PATH);
+                    var createdFoods = JsonConvert.DeserializeObject<List<CreatedFood>>(createdFoodsJson);
 
                     if (createdFoods != null)
                     {
                         foreach (var createdFood in createdFoods)
                         {
-                            if (createdFood.Id == foodid && createdFood.ChefId == chefid)
+                            if (createdFood.Id == foodid)
                             {
                                 createdFoods.Remove(createdFood);
 
-                                var updatedFoodsJson = JsonConvert.SerializeObject(createdFoods);
-                                await File.WriteAllTextAsync(Constants.CREATED_FOODS_PATH, updatedFoodsJson);
+                                var updatedFoodsJson = JsonConvert.SerializeObject(createdFoods, Formatting.Indented);
+                                File.WriteAllText(Constants.CREATED_FOODS_PATH, updatedFoodsJson);
 
                                 return true;
                             }
