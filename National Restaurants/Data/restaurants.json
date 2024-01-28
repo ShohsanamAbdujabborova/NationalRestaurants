@@ -1,22 +1,11 @@
 [
   {
     "Id": 1,
-    "RestaurantType": 0,
-    "Name": "milliy",
-    "Location": "cola",
-    "Menu": [
-      {
-        "id": 1,
-        "name": "Pizza Margherita",
-        "description": "Pizza Margherita is a classic Italian pizza topped with tomato sauce, fresh mozzarella cheese, basil leaves, and a drizzle of olive oil.",
-        "price": 12.99,
-        "included_drinks": [
-          "Cola",
-          "Mineral Water"
-        ]
-      }
-    ],
-    "CreatedAt": "2024-01-28T12:11:36.1876435Z",
-    "EditedAt": "2024-01-28T12:11:36.1876928Z"
+    "RestaurantType": "Other",
+    "Name": "sd",
+    "Location": "asdasd",
+    "Menu": [],
+    "CreatedAt": "2024-01-28T12:47:46.1018123Z",
+    "EditedAt": "2024-01-28T12:47:46.1018126Z"
   }
 ]

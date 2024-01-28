@@ -106,9 +106,25 @@ public class RestaurantMenu
 
     private async ValueTask RemoveFood()
     {
-        throw new NotImplementedException();
+        await Console.Out.WriteLineAsync("==Removefood==");
+        await Console.Out.WriteLineAsync("Enter restaurant id:");
+        int restaurantid = 0;
+        while (!int.TryParse(Console.ReadLine(), out restaurantid))
+        {
+            await Console.Out.WriteLineAsync("Enter a valid input");
+        }
+        await Console.Out.WriteLineAsync("Enter foodid:");
+        int foodid = 0;
+        while (!int.TryParse(Console.ReadLine(), out foodid))
+        {
+            await Console.Out.WriteLineAsync("Enter a valid input");
+        }
+        var result = restaurantService.RemoveFoodAsync(foodid, restaurantid);
+        if (result != null)
+        {
+            Console.WriteLine("Food removed successfully");
+        }
     }
-
     private async ValueTask CreateAsync()
     {
         await Console.Out.WriteLineAsync("Create restaurant");
@@ -122,10 +138,10 @@ reentertypecreate:
         switch (restaurantType)
         {
             case "1":
-                restaurant.RestaurantType = RestaurantType.National;
+                restaurant.RestaurantType = Convert.ToString(RestaurantType.National);
                 break;
             case "2":
-                restaurant.RestaurantType = RestaurantType.Other;
+                restaurant.RestaurantType = Convert.ToString(RestaurantType.Other);
                 break;
             default:
                 Console.WriteLine("wrong choice, Press any key to re-enter");
@@ -176,10 +192,10 @@ reentertypecreate:
         switch (restaurantType)
         {
             case "1":
-                restaurant.RestaurantType = RestaurantType.National;
+                restaurant.RestaurantType = Convert.ToString(RestaurantType.National);
                 break;
             case "2":
-                restaurant.RestaurantType = RestaurantType.Other;
+                restaurant.RestaurantType = Convert.ToString(RestaurantType.Other);
                 break;
             default:
                 Console.WriteLine("wrong choice, Press any key to re-enter");
@@ -211,7 +227,6 @@ reentertypecreate:
             await Console.Out.WriteLineAsync("restaurant created successfully");
         }
     }
-
     private async ValueTask DeleteAsync()
     {
         Console.WriteLine("===Delete Restaurant===");
@@ -230,7 +245,6 @@ reentertypecreate:
             Console.WriteLine($"restaurant with Id {id} not found");
         }
     }
-
     private async ValueTask GetAllAsync()
     {
         Console.WriteLine("===View all Restaurants==");
@@ -248,7 +262,6 @@ reentertypecreate:
             Console.WriteLine("Sorry, restaurants not found");
         }
     }
-
     private async ValueTask GetByIdAsync()
     {
         Console.WriteLine("===Get Restaurant by id ==");

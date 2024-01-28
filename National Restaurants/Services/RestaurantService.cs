@@ -22,7 +22,7 @@ public class RestaurantService : IRestaurantService
         {
             if (item.Id == restaurantId)
             {
-                if (item.RestaurantType == Enums.RestaurantType.National)
+                if (item.RestaurantType == "National")
                 {
                     var food = await FoodService.GetByIdNational(foodId);
                     if (food == null)
@@ -38,7 +38,7 @@ public class RestaurantService : IRestaurantService
                     foundRestaurant = true;
                     break;
                 }
-                else if (item.RestaurantType == Enums.RestaurantType.Other)
+                else if (item.RestaurantType == "Other")
                 {
                     var food = await FoodService.GetByIdOthers(foodId);
                     if (food == null)
