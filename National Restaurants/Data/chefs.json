@@ -1,18 +1,10 @@
 [
   {
-    "Id": 1,
-    "Name": "123",
-    "Specialization": "123",
-    "Level": "CommisChef",
-    "Experience": 1.0,
-    "Cooks": "1"
-  },
-  {
-    "Id": 2,
-    "Name": "adsd",
-    "Specialization": "asdas",
-    "Level": "CommisChef",
-    "Experience": 1.0,
-    "Cooks": "asdfgh"
+    "id": 1,
+    "name": "Seva",
+    "specialization": "Famous Cooker",
+    "level": "HeadChef",
+    "experience": 5.0,
+    "cooks": "All famous meals"
   }
 ]
